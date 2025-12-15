@@ -3,32 +3,39 @@
 <div class="gh-page">
     <div class="gh-container">
 
-        {{#tag}}
-        <header class="gh-page-head">
+        <div class="gh-layout">
+            {{> "sidebar"}}
 
-            <h1>{{name}}</h1>
+            <div class="gh-main-content">
+                {{#tag}}
+                <header class="gh-page-head">
 
-            <p>
-                {{#if description}}
-                    {{description}}
-                {{else}}
-                    A collection of {{plural ../pagination.total empty='posts' singular='% post' plural='% posts'}}
-                {{/if}}
-            </p>
+                    <h1>{{name}}</h1>
 
-            {{#if feature_image}}
-                <img class="gh-page-image" src="{{feature_image}}" alt="{{name}}" />
-            {{/if}}
+                    <p>
+                        {{#if description}}
+                            {{description}}
+                        {{else}}
+                            A collection of {{plural ../pagination.total empty='posts' singular='% post' plural='% posts'}}
+                        {{/if}}
+                    </p>
 
-        </header>
-        {{/tag}}
+                    {{#if feature_image}}
+                        <img class="gh-page-image" src="{{feature_image}}" alt="{{name}}" />
+                    {{/if}}
 
-        <div class="gh-postfeed">
-        {{#foreach posts}}
+                </header>
+                {{/tag}}
 
-            {{> "card"}} {{!-- partials/card.hbs --}}
+                <div class="gh-postfeed">
+                {{#foreach posts}}
 
-        {{/foreach}}
+                    {{> "card"}} {{!-- partials/card.hbs --}}
+
+                {{/foreach}}
+                </div>
+            </div>
+
         </div>
 
     </div>

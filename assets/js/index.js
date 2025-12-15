@@ -6,8 +6,10 @@ import "../css/index.css";
 // Import JS
 import menuOpen from "./menuOpen";
 import infiniteScroll from "./infiniteScroll";
+import sidebarToggle from "./sidebarToggle";
 
 
 // Call the menu and infinite scroll functions
 menuOpen();
 infiniteScroll();
+sidebarToggle();

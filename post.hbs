@@ -2,7 +2,10 @@
 
 {{#post}}
 
-<article class="gh-article {{post_class}}">
+<div class="gh-layout">
+    {{> "sidebar"}}
+
+    <article class="gh-article {{post_class}}"
 
     <header class="gh-header gh-canvas">
         <span class="gh-post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time></span>
@@ -85,5 +88,7 @@
         </div>
     </div>
 </aside>
+
+</div>
 
 {{/post}}

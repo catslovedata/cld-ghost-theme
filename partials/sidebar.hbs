@@ -1,0 +1,37 @@
+{{!--
+Sidebar component
+--}}
+
+<aside class="gh-sidebar">
+    <div class="gh-sidebar-inner">
+
+        <div class="gh-sidebar-header">
+            <h1 class="gh-sidebar-title">
+                <a href="{{@site.url}}">{{@site.title}}</a>
+            </h1>
+            {{#if @site.description}}
+                <p class="gh-sidebar-description">{{@site.description}}</p>
+            {{/if}}
+            {{#if @site.navigation}}
+                <nav class="gh-sidebar-nav">
+                    {{navigation}}
+                </nav>
+            {{/if}}
+        </div>
+
+        <div class="gh-sidebar-section">
+            <h3 class="gh-sidebar-section-title">Topics</h3>
+            <div class="gh-sidebar-placeholder">
+                List of categories here
+            </div>
+        </div>
+
+        <div class="gh-sidebar-section">
+            <h3 class="gh-sidebar-section-title">Tags</h3>
+            <div class="gh-sidebar-placeholder">
+                List of tags here
+            </div>
+        </div>
+
+    </div>
+</aside>

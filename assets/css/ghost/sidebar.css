@@ -1,0 +1,143 @@
+/* Sidebar Layout
+/* ---------------------------------------------------------- */
+
+/* Desktop: Two-column layout */
+.gh-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 4vmin;
+    align-items: start;
+}
+
+.gh-sidebar {
+    position: sticky;
+    top: 4vmin;
+}
+
+.gh-sidebar-inner {
+    padding: 2rem 0;
+}
+
+.gh-sidebar-header {
+    margin-bottom: 3rem;
+}
+
+.gh-sidebar-title {
+    margin: 0 0 0.5rem;
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.gh-sidebar-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.gh-sidebar-description {
+    margin: 0 0 1.5rem;
+    font-size: 1.4rem;
+    opacity: 0.8;
+}
+
+.gh-sidebar-nav {
+    margin-top: 1.5rem;
+}
+
+.gh-sidebar-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-sidebar-nav li {
+    margin: 0.5rem 0;
+}
+
+.gh-sidebar-section {
+    margin-bottom: 2.5rem;
+}
+
+.gh-sidebar-section-title {
+    margin: 0 0 1rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+}
+
+.gh-sidebar-placeholder {
+    padding: 1rem;
+    background: rgba(0,0,0,0.05);
+    border-radius: 4px;
+    font-size: 1.3rem;
+    font-style: italic;
+    opacity: 0.6;
+}
+
+.gh-main-content {
+    min-width: 0;
+}
+
+/* Mobile: Stack layout with collapsible sidebar */
+@media (max-width: 900px) {
+    .gh-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .gh-sidebar {
+        position: static;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .gh-sidebar-header {
+        text-align: center;
+    }
+
+    /* Collapsible topics section on mobile */
+    .gh-sidebar-section {
+        border: 1px solid rgba(0,0,0,0.1);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .gh-sidebar-section-title {
+        margin: 0;
+        padding: 1rem;
+        background: rgba(0,0,0,0.03);
+        cursor: pointer;
+        position: relative;
+    }
+
+    .gh-sidebar-section-title::after {
+        content: "▼";
+        position: absolute;
+        right: 1rem;
+        transition: transform 0.3s ease;
+    }
+
+    .gh-sidebar-section.collapsed .gh-sidebar-section-title::after {
+        transform: rotate(-90deg);
+    }
+
+    .gh-sidebar-placeholder {
+        margin: 0;
+        border-radius: 0;
+        display: none;
+    }
+
+    .gh-sidebar-section:not(.collapsed) .gh-sidebar-placeholder {
+        display: block;
+    }
+}
+
+/* Adjust post layout for sidebar */
+.gh-layout .gh-article {
+    padding: 4vmin 0;
+}
+
+.gh-layout .gh-readmore {
+    margin-top: 4vmin;
+}

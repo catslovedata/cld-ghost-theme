@@ -18,6 +18,7 @@ production stylesheet in assets/built/screen.css using: npm run dev
 @import "ghost/header.css";
 @import "ghost/content.css";
 @import "ghost/readmore.css";
+@import "ghost/sidebar.css";
 @import "ghost/errors.css";
 @import "ghost/footer.css";
 @import "ghost/badge.css";
