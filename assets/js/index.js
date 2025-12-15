@@ -7,11 +7,9 @@ import "../css/index.css";
 import infiniteScroll from "./infiniteScroll";
 import sidebarToggle from "./sidebarToggle";
 import postMetaTags from "./postMetaTags";
-import sidebarTags from "./sidebarTags";
 
 
 // Call the functions
 infiniteScroll();
 sidebarToggle();
 postMetaTags();
-sidebarTags();

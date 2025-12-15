@@ -17,10 +17,13 @@
         [main-start] var(--main) [main-end]
         var(--wide) [wide-end]
         var(--full) [full-end];
+    min-width: 0;
+    overflow: hidden;
 }
 
 .gh-canvas > * {
     grid-column: main-start / main-end;
+    min-width: 0;
 }
 
 .kg-width-wide,
@@ -34,6 +37,7 @@
 
 .kg-width-full img {
     width: 100%;
+    max-width: 100%;
 }
 
 

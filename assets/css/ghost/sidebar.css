@@ -3,13 +3,13 @@
 
 /* Desktop: Two-column layout */
 .gh-layout {
-    display: grid;
-    grid-template-columns: 280px 1fr;
+    display: flex;
     gap: 4vmin;
     align-items: start;
 }
 
 .gh-sidebar {
+    flex: 0 0 280px;
     position: sticky;
     top: 4vmin;
 }
@@ -98,16 +98,19 @@
 }
 
 .gh-main-content {
+    flex: 1 1 0;
     min-width: 0;
+    overflow: hidden;
 }
 
 /* Mobile: Stack layout with collapsible sidebar */
 @media (max-width: 900px) {
     .gh-layout {
-        grid-template-columns: 1fr;
+        flex-direction: column;
     }
 
     .gh-sidebar {
+        flex: 0 0 auto;
         position: static;
         border-bottom: 1px solid rgba(0,0,0,0.1);
         padding-bottom: 2rem;

@@ -19,20 +19,28 @@ Sidebar component
             {{/if}}
         </div>
 
-        {{!-- Fetch all tags - JavaScript will filter them --}}
-        {{#get "tags" limit="all" include="count.posts"}}
+        {{!-- Content-type tags (Topics) --}}
+        {{#get "tags" filter="name:~'content-type-'" order="name asc" limit="all" include="count.posts"}}
             <div class="gh-sidebar-section gh-sidebar-topics">
                 <h3 class="gh-sidebar-section-title">Topics</h3>
                 <ul class="gh-sidebar-list gh-sidebar-topics-list">
+                {{#foreach tags}}
+                    <li class="gh-sidebar-list-item">
+                        <a href="{{url}}">{{#foreach (split name separator="content-type-")}}{{this}}{{/foreach}}</a>
+                    </li>
+                {{/foreach}}
                 </ul>
             </div>
+        {{/get}}
 
+        {{!-- Regular tags (excluding content-type) --}}
+        {{#get "tags" filter="name:-~'content-type-'" order="name asc" limit="all" include="count.posts"}}
             <div class="gh-sidebar-section gh-sidebar-tags">
                 <h3 class="gh-sidebar-section-title">Tags</h3>
                 <ul class="gh-sidebar-list gh-sidebar-tags-list">
                 {{#foreach tags}}
                     <li class="gh-sidebar-list-item">
-                        <a href="{{url}}" data-tag-name="{{name}}">{{name}}</a>
+                        <a href="{{url}}">{{name}}</a>
                     </li>
                 {{/foreach}}
                 </ul>
