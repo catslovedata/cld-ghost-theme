@@ -61,6 +61,8 @@ html,
 
 .gh-postfeed > *:first-child {
     grid-column: 1 / -1;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .gh-container {
