@@ -22,3 +22,13 @@ projectFilesBackup
 .DS_Store
 
 dist/
+
+# Claude directory
+.claude
+
+# Built assets
+assets/built
+
+# Lock files
+package-lock.json
+yarn.lock
