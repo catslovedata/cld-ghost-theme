@@ -19,32 +19,21 @@ Sidebar component
             {{/if}}
         </div>
 
-        {{!-- Fetch all tags once and filter in template --}}
+        {{!-- Fetch all tags - JavaScript will filter them --}}
         {{#get "tags" limit="all" include="count.posts"}}
-            <div class="gh-sidebar-section">
+            <div class="gh-sidebar-section gh-sidebar-topics">
                 <h3 class="gh-sidebar-section-title">Topics</h3>
-                <ul class="gh-sidebar-list">
-                {{#foreach tags}}
-                    {{!-- Content type tags: name starts with "content-type-" --}}
-                    {{#match name "~^content-type-"}}
-                    <li class="gh-sidebar-list-item">
-                        <a href="{{url}}">{{replace name "content-type-" ""}}</a>
-                    </li>
-                    {{/match}}
-                {{/foreach}}
+                <ul class="gh-sidebar-list gh-sidebar-topics-list">
                 </ul>
             </div>
 
-            <div class="gh-sidebar-section">
+            <div class="gh-sidebar-section gh-sidebar-tags">
                 <h3 class="gh-sidebar-section-title">Tags</h3>
-                <ul class="gh-sidebar-list">
+                <ul class="gh-sidebar-list gh-sidebar-tags-list">
                 {{#foreach tags}}
-                    {{!-- Regular tags: name does NOT start with "content-type-" --}}
-                    {{#match name "!~^content-type-"}}
                     <li class="gh-sidebar-list-item">
-                        <a href="{{url}}">{{name}}</a>
+                        <a href="{{url}}" data-tag-name="{{name}}">{{name}}</a>
                     </li>
-                    {{/match}}
                 {{/foreach}}
                 </ul>
             </div>

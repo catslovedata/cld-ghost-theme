@@ -1,44 +1,35 @@
 // Fix sidebar tag filtering using JavaScript
 export default function sidebarTags() {
-    const topicsSection = document.querySelector('.gh-sidebar-section:has(.gh-sidebar-section-title)');
-    const tagsSection = document.querySelectorAll('.gh-sidebar-section')[1];
+    const topicsList = document.querySelector('.gh-sidebar-topics-list');
+    const tagsList = document.querySelector('.gh-sidebar-tags-list');
 
-    if (!topicsSection || !tagsSection) return;
+    if (!topicsList || !tagsList) return;
 
-    // Get all topic links
-    const topicLinks = Array.from(topicsSection.querySelectorAll('.gh-sidebar-list-item a'));
-    const tagLinks = Array.from(tagsSection.querySelectorAll('.gh-sidebar-list-item a'));
+    // Get all tag links from the tags list
+    const allTagItems = Array.from(tagsList.querySelectorAll('.gh-sidebar-list-item'));
 
     // Filter and reorganize
     const contentTypeItems = [];
     const regularTagItems = [];
 
-    [...topicLinks, ...tagLinks].forEach(link => {
-        const listItem = link.closest('.gh-sidebar-list-item');
-        const tagName = link.textContent.trim();
+    allTagItems.forEach(item => {
+        const link = item.querySelector('a');
+        const tagName = link.getAttribute('data-tag-name');
 
-        if (tagName.startsWith('content-type-')) {
+        if (tagName && tagName.startsWith('content-type-')) {
             // Strip prefix for display
             link.textContent = tagName.replace('content-type-', '');
-            contentTypeItems.push(listItem);
+            contentTypeItems.push(item);
         } else {
-            regularTagItems.push(listItem);
+            regularTagItems.push(item);
         }
     });
 
     // Clear both lists
-    const topicsList = topicsSection.querySelector('.gh-sidebar-list');
-    const tagsList = tagsSection.querySelector('.gh-sidebar-list');
-
-    if (topicsList) topicsList.innerHTML = '';
-    if (tagsList) tagsList.innerHTML = '';
+    topicsList.innerHTML = '';
+    tagsList.innerHTML = '';
 
     // Repopulate with filtered items
-    contentTypeItems.forEach(item => {
-        if (topicsList) topicsList.appendChild(item);
-    });
-
-    regularTagItems.forEach(item => {
-        if (tagsList) tagsList.appendChild(item);
-    });
+    contentTypeItems.forEach(item => topicsList.appendChild(item));
+    regularTagItems.forEach(item => tagsList.appendChild(item));
 }
