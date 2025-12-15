@@ -18,19 +18,9 @@
             <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY-MM-DD"}}</time>
             {{#if tags}}
                 <span class="gh-post-meta-separator"> | </span>
-                <span class="gh-post-meta-tags gh-post-meta-content-types">
+                <span class="gh-post-meta-tags">
                 {{#foreach tags}}
-                    {{#match name "~^content-type-"}}
-                        <a href="{{url}}" class="gh-post-meta-tag">{{replace name "content-type-" ""}}</a>
-                    {{/match}}
-                {{/foreach}}
-                </span>
-                <span class="gh-post-meta-separator"> | </span>
-                <span class="gh-post-meta-tags gh-post-meta-regular-tags">
-                {{#foreach tags}}
-                    {{#match name "!~^content-type-"}}
-                        <a href="{{url}}" class="gh-post-meta-tag">{{name}}</a>
-                    {{/match}}
+                    <a href="{{url}}" class="gh-post-meta-tag" data-tag-name="{{name}}">{{name}}</a>
                 {{/foreach}}
                 </span>
             {{/if}}
