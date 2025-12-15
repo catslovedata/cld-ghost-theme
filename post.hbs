@@ -1,13 +1,12 @@
 {{!< default}}
 
-{{#post}}
-
 <div class="gh-page">
     <div class="gh-container">
         <div class="gh-layout">
             {{> "sidebar"}}
 
             <div class="gh-main-content">
+                {{#post}}
                 <article class="gh-article {{post_class}}">
 
     <header class="gh-header gh-canvas">
@@ -57,10 +56,8 @@
         </div>
     </div>
 </aside>
+                {{/post}}
             </div>
-
         </div>
     </div>
 </div>
-
-{{/post}}
