@@ -75,6 +75,28 @@
     opacity: 0.6;
 }
 
+.gh-sidebar-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1.4rem;
+}
+
+.gh-sidebar-list-item {
+    margin: 0.5rem 0;
+}
+
+.gh-sidebar-list-item a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    padding: 0.25rem 0;
+}
+
+.gh-sidebar-list-item a:hover {
+    color: var(--color-primary);
+}
+
 .gh-main-content {
     min-width: 0;
 }
@@ -122,13 +144,16 @@
         transform: rotate(-90deg);
     }
 
-    .gh-sidebar-placeholder {
+    .gh-sidebar-placeholder,
+    .gh-sidebar-list {
         margin: 0;
         border-radius: 0;
         display: none;
+        padding: 1rem;
     }
 
-    .gh-sidebar-section:not(.collapsed) .gh-sidebar-placeholder {
+    .gh-sidebar-section:not(.collapsed) .gh-sidebar-placeholder,
+    .gh-sidebar-section:not(.collapsed) .gh-sidebar-list {
         display: block;
     }
 }
