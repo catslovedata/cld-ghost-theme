@@ -8,54 +8,50 @@
             <div class="gh-main-content">
                 {{#post}}
                 <article class="gh-article {{post_class}}">
+                    <header class="gh-header">
+                        <h1 class="gh-title">{{title}}</h1>
 
-    <header class="gh-header">
-        <h1 class="gh-title">{{title}}</h1>
+                        {{#if custom_excerpt}}
+                        <p class="gh-excerpt">{{custom_excerpt}}</p>
+                        {{/if}}
 
-        {{#if custom_excerpt}}
-        <p class="gh-excerpt">{{custom_excerpt}}</p>
-        {{/if}}
+                        <div class="gh-post-meta">
+                            <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY-MM-DD"}}</time>
+                            {{#if tags}}
+                                <span class="gh-post-meta-tags">
+                                {{#foreach tags}}
+                                    <a href="{{url}}" class="gh-post-meta-tag" data-tag-name="{{name}}">{{name}}</a>
+                                {{/foreach}}
+                                </span>
+                            {{/if}}
+                        </div>
+                    </header>
 
-        <div class="gh-post-meta">
-            <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY-MM-DD"}}</time>
-            {{#if tags}}
-                <span class="gh-post-meta-tags">
-                {{#foreach tags}}
-                    <a href="{{url}}" class="gh-post-meta-tag" data-tag-name="{{name}}">{{name}}</a>
-                {{/foreach}}
-                </span>
-            {{/if}}
-        </div>
-    </header>
+                    <div class="gh-content gh-canvas">
+                        {{content}}
+                    </div>
 
-    <div class="gh-content gh-canvas">
-        {{content}}
-    </div>
+                    <footer class="gh-footer gh-canvas">
+                        {{#if comments}}
+                        <section class="gh-post-comments">
+                            {{comments}}
+                        </section>
+                        {{/if}}
+                    </footer>
+                </article>
 
-    <footer class="gh-footer gh-canvas">
-
-        {{#if comments}}
-        <section class="gh-post-comments">
-            {{comments}}
-        </section>
-        {{/if}}
-
-    </footer>
-
-</article>
-
-<aside class="gh-readmore">
-    <div class="gh-readmore-inner gh-container">
-        <div class="gh-readmore-next">
-            {{#next_post}}<a href="{{url}}">{{> "icons/arrow-left"}} <h4>{{title}}</h4></a>{{/next_post}}
-        </div>
-        <div class="gh-readmore-prev">
-            {{#prev_post}}<a href="{{url}}">
-                <h4>{{title}}</h4> {{> "icons/arrow-right"}}
-            </a>{{/prev_post}}
-        </div>
-    </div>
-</aside>
+                <aside class="gh-readmore">
+                    <div class="gh-readmore-inner gh-container">
+                        <div class="gh-readmore-next">
+                            {{#next_post}}<a href="{{url}}">{{> "icons/arrow-left"}} <h4>{{title}}</h4></a>{{/next_post}}
+                        </div>
+                        <div class="gh-readmore-prev">
+                            {{#prev_post}}<a href="{{url}}">
+                                <h4>{{title}}</h4> {{> "icons/arrow-right"}}
+                            </a>{{/prev_post}}
+                        </div>
+                    </div>
+                </aside>
                 {{/post}}
             </div>
         </div>
