@@ -16,7 +16,7 @@
 
         <div class="gh-post-meta">
             <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY-MM-DD"}}</time>
-            {{#if tags}}
+            {{#has tag=""}}
                 <span class="gh-post-meta-separator"> | </span>
                 <span class="gh-post-meta-tags gh-post-meta-content-types">
                 {{#foreach tags}}
@@ -33,7 +33,7 @@
                     {{/match}}
                 {{/foreach}}
                 </span>
-            {{/if}}
+            {{/has}}
         </div>
     </header>
 
