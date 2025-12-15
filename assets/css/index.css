@@ -213,9 +213,11 @@ html,
 }
 
 .gh-post-meta-tags {
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    display: inline;
+}
+
+.gh-post-meta-tags-group {
+    display: inline;
 }
 
 .gh-post-meta-tag {
@@ -227,15 +229,8 @@ html,
     color: var(--color-primary);
 }
 
-.gh-post-meta-tag:not(:last-child)::after {
-    content: ",";
-    margin-left: -0.25rem;
-}
-
-/* Hide separator if section is empty */
-.gh-post-meta-content-types:empty + .gh-post-meta-separator,
-.gh-post-meta-separator:has(+ .gh-post-meta-tags:empty) {
-    display: none;
+.gh-post-meta-tags-group .gh-post-meta-tag:not(:last-child)::after {
+    content: ", ";
 }
 
 .gh-feature-image {
