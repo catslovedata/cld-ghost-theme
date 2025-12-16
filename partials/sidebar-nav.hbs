@@ -1,0 +1,33 @@
+{{!--
+Sidebar navigation - Topics and Tags
+--}}
+
+<div class="gh-sidebar-nav">
+    {{!-- Content-type tags (Topics) --}}
+    {{#get "tags" filter="name:~'content-type-'" order="name asc" limit="all" include="count.posts"}}
+        <div class="gh-sidebar-section gh-sidebar-topics">
+            <h3 class="gh-sidebar-section-title">Topics</h3>
+            <ul class="gh-sidebar-list gh-sidebar-topics-list">
+            {{#foreach tags}}
+                <li class="gh-sidebar-list-item">
+                    <a href="{{url}}">{{#foreach (split name separator="content-type-")}}{{this}}{{/foreach}}</a>
+                </li>
+            {{/foreach}}
+            </ul>
+        </div>
+    {{/get}}
+
+    {{!-- Regular tags (excluding content-type) --}}
+    {{#get "tags" filter="name:-~'content-type-'" order="name asc" limit="all" include="count.posts"}}
+        <div class="gh-sidebar-section gh-sidebar-tags">
+            <h3 class="gh-sidebar-section-title">Tags</h3>
+            <ul class="gh-sidebar-list gh-sidebar-tags-list">
+            {{#foreach tags}}
+                <li class="gh-sidebar-list-item">
+                    <a href="{{url}}">{{name}}</a>
+                </li>
+            {{/foreach}}
+            </ul>
+        </div>
+    {{/get}}
+</div>

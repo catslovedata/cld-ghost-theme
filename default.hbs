@@ -33,7 +33,10 @@
             <div class="gh-page">
                 <div class="gh-container">
                     <div class="gh-layout">
-                        {{> "sidebar"}}
+                        <aside class="gh-sidebar">
+                            {{> "masthead"}}
+                            {{> "sidebar-nav"}}
+                        </aside>
 
                         <div class="gh-main-content">
                             {{{body}}}

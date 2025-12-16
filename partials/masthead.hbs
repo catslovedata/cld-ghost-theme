@@ -1,0 +1,22 @@
+{{!--
+Site masthead - title, description, navigation, search
+--}}
+
+<div class="gh-masthead">
+    <h1 class="gh-masthead-title">
+        <a href="{{@site.url}}">{{@site.title}}</a>
+    </h1>
+    {{#if @site.description}}
+        <p class="gh-masthead-description">{{@site.description}}</p>
+    {{/if}}
+    <div class="gh-masthead-nav-wrapper">
+        <div class="gh-masthead-search">
+            {{search}}
+        </div>
+        {{#if @site.navigation}}
+            <nav class="gh-masthead-nav">
+                {{navigation}}
+            </nav>
+        {{/if}}
+    </div>
+</div>
