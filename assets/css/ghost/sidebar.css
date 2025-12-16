@@ -218,8 +218,3 @@
         display: block;
     }
 }
-
-/* Adjust post layout for sidebar */
-.gh-layout .gh-article {
-    padding: 8vmin 0;
-}

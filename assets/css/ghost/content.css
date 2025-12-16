@@ -6,8 +6,10 @@
 .gh-canvas,
 .kg-width-full.kg-content-wide {
     --gap: 4vw;
-    --main: min(var(--content-width, 1000px), 100% - var(--gap) * 2);
-    --wide: minmax(0, calc((var(--container-width, 1400px) - var(--content-width, 1000px)) / 2));
+    /* Main content uses 90% of available width (responsive to actual container size) */
+    --main: min(90%, 100% - var(--gap) * 2);
+    /* Wide area gets the remaining space on each side */
+    --wide: minmax(0, calc((100% - min(90%, 100% - var(--gap) * 2)) / 2));
     --full: minmax(var(--gap), 1fr);
 
     display: grid;
@@ -18,7 +20,6 @@
         var(--wide) [wide-end]
         var(--full) [full-end];
     min-width: 0;
-    overflow: hidden;
 }
 
 .gh-canvas > * {
