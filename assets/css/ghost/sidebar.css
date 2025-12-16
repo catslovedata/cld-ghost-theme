@@ -1,234 +1,148 @@
-/* Sidebar Layout
-/* ---------------------------------------------------------- */
+/* =========================
+   Base (mobile-first)
+   ========================= */
 
-/* Desktop: Two-column layout */
+/* Stack everything vertically by default */
 .gh-layout {
-    display: flex;
-    gap: 4vmin;
-    align-items: start;
+    display: block;
 }
 
+/* Hide desktop sidebar on mobile */
 .gh-sidebar {
-    flex: 0 0 25%;
-    min-width: 240px;
-    max-width: 320px;
-    position: sticky;
-    top: 4vmin;
+    display: none;
 }
 
-.gh-sidebar-inner {
-    padding: 2rem 0;
+/* Mobile elements are visible by default */
+.gh-nav-mobile {
+    display: block;
 }
 
-.gh-sidebar-header {
+/* Content is always visible */
+.gh-main-content {
+    display: block;
+}
+
+/* Mobile masthead styling */
+.gh-nav-mobile--masthead .gh-masthead {
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    margin-bottom: 0;
+}
+
+/* Hide duplicate search in mobile masthead - search is in header instead */
+.gh-nav-mobile--masthead .gh-masthead-search {
+    display: none;
+}
+
+/* Mobile nav styling */
+.gh-nav-mobile--nav .gh-sidebar-nav {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 2rem;
+    margin-top: 2rem;
+}
+
+/* Navigation in sidebar-nav - add spacing below */
+.gh-sidebar-nav > .gh-masthead-nav ul {
     margin-bottom: 3rem;
+    padding-bottom: 2.5rem;
 }
 
-.gh-sidebar-title {
-    margin: 0 0 0.5rem;
-    font-size: 2.4rem;
-    font-weight: 700;
+/* Hide navigation border on mobile */
+.gh-nav-mobile--nav .gh-sidebar-nav > .gh-masthead-nav ul {
+    border-bottom: none;
 }
 
-.gh-sidebar-title a {
-    color: inherit;
-    text-decoration: none;
+/* Show navigation border on desktop */
+.gh-sidebar .gh-sidebar-nav > .gh-masthead-nav ul {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-.gh-sidebar-description {
-    margin: 0 0 1.5rem;
-    font-size: 1.4rem;
-    opacity: 0.8;
+/* Collapsible sections on mobile */
+.gh-nav-mobile--nav .gh-sidebar-section {
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
 }
 
-.gh-sidebar-nav-wrapper {
-    margin-top: 1.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0;
-}
-
-.gh-sidebar-search {
-    display: inline;
-}
-
-.gh-sidebar-search .gh-search-toggle {
-    display: inline;
-    padding: 0;
-    border: none;
-    background: none;
-    font-size: inherit;
-    text-decoration: underline;
+.gh-nav-mobile--nav .gh-sidebar-section-title {
+    margin: 0;
+    padding: 1rem;
+    background: rgba(0,0,0,0.03);
     cursor: pointer;
-}
-
-.gh-sidebar-search .gh-search-toggle:hover {
-    color: var(--color-primary);
-}
-
-.gh-sidebar-search::after {
-    content: " / ";
-    margin: 0 0.5rem;
-    opacity: 0.5;
-}
-
-.gh-sidebar-nav {
-    display: inline;
-}
-
-.gh-sidebar-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 0;
-}
-
-.gh-sidebar-nav li {
-    margin: 0;
-    display: inline;
-}
-
-.gh-sidebar-nav li:not(:last-child)::after {
-    content: " / ";
-    margin: 0 0.5rem;
-    opacity: 0.5;
-}
-
-.gh-sidebar-section {
-    margin-bottom: 2.5rem;
-}
-
-.gh-sidebar-section-title {
-    margin: 0 0 1rem;
+    position: relative;
     font-size: 1.4rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    opacity: 0.8;
 }
 
-.gh-sidebar-placeholder {
+.gh-nav-mobile--nav .gh-sidebar-section-title::after {
+    content: "▼";
+    position: absolute;
+    right: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.gh-nav-mobile--nav .gh-sidebar-section.collapsed .gh-sidebar-section-title::after {
+    transform: rotate(-90deg);
+}
+
+.gh-nav-mobile--nav .gh-sidebar-placeholder,
+.gh-nav-mobile--nav .gh-sidebar-list {
+    margin: 0;
+    border-radius: 0;
+    display: none;
     padding: 1rem;
-    background: rgba(0,0,0,0.05);
-    border-radius: 4px;
-    font-size: 1.3rem;
-    font-style: italic;
-    opacity: 0.6;
 }
 
-.gh-sidebar-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: 1.4rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem 1.5rem;
+.gh-nav-mobile--nav .gh-sidebar-section:not(.collapsed) .gh-sidebar-placeholder,
+.gh-nav-mobile--nav .gh-sidebar-section:not(.collapsed) .gh-sidebar-list {
+    display: block;
 }
 
-.gh-sidebar-list-item {
-    margin: 0;
-    display: inline;
-}
 
-.gh-sidebar-list-item a {
-    color: inherit;
-    text-decoration: none;
-    display: inline;
-    padding: 0;
-}
+/* =========================
+   Desktop
+   ========================= */
 
-.gh-sidebar-list-item a:hover {
-    color: var(--color-primary);
-}
+@media (min-width: 901px) {
 
-.gh-main-content {
-    flex: 1 1 0;
-    min-width: 0;
-    overflow: hidden;
-}
-
-/* Mobile: Stack layout with sidebar at bottom */
-@media (max-width: 900px) {
+    /* Switch to two-column layout */
     .gh-layout {
-        flex-direction: column;
-    }
-
-    .gh-sidebar {
-        flex: 0 0 auto;
-        position: static;
         display: flex;
-        flex-direction: column;
+        gap: 4vmin;
+        align-items: flex-start;
     }
 
-    .gh-masthead {
-        order: 0;
-        text-align: center;
-        padding-bottom: 2rem;
-        border-bottom: 1px solid rgba(0,0,0,0.1);
-        margin-bottom: 0;
-    }
-
-    .gh-main-content {
-        flex: 1 1 auto;
-        overflow: visible;
-        order: 1;
-    }
-
-    .gh-sidebar-nav {
-        order: 2;
-        border-top: 1px solid rgba(0,0,0,0.1);
-        padding-top: 2rem;
-        margin-top: 2rem;
-    }
-
-    /* Hide masthead search on mobile (it's in the header instead) */
-    .gh-masthead-search {
-        display: none;
-    }
-
-    /* Collapsible topics section on mobile */
-    .gh-sidebar-section {
-        border: 1px solid rgba(0,0,0,0.1);
-        border-radius: 4px;
-        overflow: hidden;
-    }
-
-    .gh-sidebar-section-title {
-        margin: 0;
-        padding: 1rem;
-        background: rgba(0,0,0,0.03);
-        cursor: pointer;
-        position: relative;
-    }
-
-    .gh-sidebar-section-title::after {
-        content: "▼";
-        position: absolute;
-        right: 1rem;
-        transition: transform 0.3s ease;
-    }
-
-    .gh-sidebar-section.collapsed .gh-sidebar-section-title::after {
-        transform: rotate(-90deg);
-    }
-
-    .gh-sidebar-placeholder,
-    .gh-sidebar-list {
-        margin: 0;
-        border-radius: 0;
-        display: none;
-        padding: 1rem;
-    }
-
-    .gh-sidebar-section:not(.collapsed) .gh-sidebar-placeholder,
-    .gh-sidebar-section:not(.collapsed) .gh-sidebar-list {
+    /* Show sidebar */
+    .gh-sidebar {
+        flex: 0 0 25%;
+        min-width: 240px;
+        max-width: 320px;
         display: block;
+        position: sticky;
+        top: 4vmin;
+    }
+
+    /* Hide mobile-only elements */
+    .gh-nav-mobile {
+        display: none;
+    }
+
+    /* Main content fills remaining space */
+    .gh-main-content {
+        flex: 1;
     }
 }
+
+
+
+/* =========================
+   Shared component styles
+   ========================= */
 
 /* Masthead styles (site header in sidebar) */
 .gh-masthead {
@@ -315,5 +229,54 @@
 }
 
 .gh-masthead-nav a:hover {
+    color: var(--color-primary);
+}
+
+/* Desktop sidebar sections (Topics/Tags) */
+.gh-sidebar .gh-sidebar-section {
+    margin-bottom: 2.5rem;
+}
+
+.gh-sidebar .gh-sidebar-section-title {
+    margin: 0 0 1rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+}
+
+.gh-sidebar .gh-sidebar-placeholder {
+    padding: 1rem;
+    background: rgba(0,0,0,0.05);
+    border-radius: 4px;
+    font-size: 1.3rem;
+    font-style: italic;
+    opacity: 0.6;
+}
+
+.gh-sidebar .gh-sidebar-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+}
+
+.gh-sidebar .gh-sidebar-list-item {
+    margin: 0;
+    display: inline;
+}
+
+.gh-sidebar .gh-sidebar-list-item a {
+    color: inherit;
+    text-decoration: none;
+    display: inline;
+    padding: 0;
+}
+
+.gh-sidebar .gh-sidebar-list-item a:hover {
     color: var(--color-primary);
 }

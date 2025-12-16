@@ -32,16 +32,24 @@
         <main class="gh-main">
             <div class="gh-page">
                 <div class="gh-container">
-                    <div class="gh-layout">
-                        <aside class="gh-sidebar">
-                            {{> "masthead"}}
-                            {{> "sidebar-nav"}}
-                        </aside>
+                <div class="gh-layout">
+                    <aside class="gh-sidebar">
+                        {{> "masthead"}}
+                        {{> "sidebar-nav"}}
+                    </aside>
 
-                        <div class="gh-main-content">
-                            {{{body}}}
-                        </div>
+                    <aside class="gh-nav-mobile gh-nav-mobile--masthead">
+                        {{> "masthead"}}
+                    </aside>
+
+                    <div class="gh-main-content">
+                        {{{body}}}
                     </div>
+
+                    <aside class="gh-nav-mobile gh-nav-mobile--nav">
+                        {{> "sidebar-nav"}}
+                    </aside>
+                </div>
                 </div>
             </div>
         </main>

@@ -25,30 +25,40 @@
 }
 
 @media (max-width: 900px) {
+    .gh-head {
+        position: absolute;
+        top: 2rem;
+        right: 1.5rem;
+        width: auto;
+        padding: 0;
+        z-index: 100;
+        background: transparent;
+    }
+
+    .gh-head-inner {
+        width: auto;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
     .gh-head-search-mobile {
-        flex: 1;
         display: flex;
         align-items: center;
-        width: 100%;
     }
 
-    /* Make search button span full width and look like a search bar */
-    .gh-head-search-mobile .gh-search {
-        width: 100%;
-    }
-
+    /* Compact search icon button */
     .gh-head-search-mobile .gh-search-toggle {
-        width: 100%;
-        padding: 1rem 1.5rem;
-        border: 1px solid var(--color-border);
-        border-radius: 4px;
-        background: #fff;
-        text-align: left;
+        padding: 0;
+        border: none;
+        background: none;
         cursor: pointer;
-        transition: border-color 0.2s ease;
+        color: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .gh-head-search-mobile .gh-search-toggle:hover {
-        border-color: var(--color-primary);
+        color: var(--color-primary);
     }
 }

@@ -45,14 +45,14 @@ html,
 }
 
 .gh-article {
-    padding: 8vmin 0;
+    padding: 4vmin 0;
 }
 
 .gh-postfeed {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    padding: 8vmin 0;
+    padding: 4vmin 0;
 }
 
 /* 2 columns for medium screens */
