@@ -12,11 +12,16 @@ Sidebar component
             {{#if @site.description}}
                 <p class="gh-sidebar-description">{{@site.description}}</p>
             {{/if}}
-            {{#if @site.navigation}}
-                <nav class="gh-sidebar-nav">
-                    {{navigation}}
-                </nav>
-            {{/if}}
+            <div class="gh-sidebar-nav-wrapper">
+                <div class="gh-sidebar-search">
+                    {{search}}
+                </div>
+                {{#if @site.navigation}}
+                    <nav class="gh-sidebar-nav">
+                        {{navigation}}
+                    </nav>
+                {{/if}}
+            </div>
         </div>
 
         {{!-- Content-type tags (Topics) --}}
