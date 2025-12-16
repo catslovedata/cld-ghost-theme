@@ -1,58 +1,53 @@
 <!DOCTYPE html>
 <html lang="{{@site.locale}}">
+
 <head>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{!-- Google Fonts --}}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    {{> fonts}}
 
-    <link rel="stylesheet" href="{{asset "built/index.css"}}" />
-    <script src="{{asset "built/index.js"}}" defer></script>
+    <link rel="stylesheet" href="{{asset " built/index.css"}}" />
+    <script src="{{asset " built/index.js"}}" defer></script>
 
     <title>{{meta_title}}</title>
 
     {{ghost_head}}
-    {{!-- Outputs important meta data and settings, should always be in <head> --}}
 
 </head>
+
 <body class="{{body_class}}">
-<div class="gh-viewport">
+    <div class="gh-viewport">
 
-<header id="gh-head" class="gh-head">
-    <div class="gh-head-inner gh-container">
-        <div class="gh-head-search">
-            {{search}}
-        </div>
+        <header id="gh-head" class="gh-head">
+            <div class="gh-head-inner gh-container">
+                <div class="gh-head-search">
+                    {{search}}
+                </div>
+            </div>
+        </header>
+
+        <main class="gh-main">
+            <div class="gh-page">
+                <div class="gh-container">
+                    <div class="gh-layout">
+                        {{> "sidebar"}}
+
+                        <div class="gh-main-content">
+                            {{{body}}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        {{!-- {{> footer}} --}}
+
     </div>
-</header>
 
-<main class="gh-main">
-
-    {{{body}}}
-    {{!-- All content gets inserted here, index.hbs, post.hbs, etc --}}
-
-</main>
-
-{{!-- <footer class="gh-foot">
-    <div class="gh-container">
-        <div class="gh-foot-menu">
-            {{navigation type="secondary"}}
-        </div>
-        <div class="gh-foot-meta">
-            Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
-        </div>
-    </div>
-</footer> --}}
-
-</div>
-
-{{!-- <foot> --}}
-{{ghost_foot}}
-{{!-- Outputs important scripts - should always be included before closing body tag --}}
+    {{ghost_foot}}
 
 </body>
+
 </html>

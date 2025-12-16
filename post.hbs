@@ -1,46 +1,28 @@
 {{!< default}}
 
-<div class="gh-page">
-    <div class="gh-container">
-        <div class="gh-layout">
-            {{> "sidebar"}}
+{{#post}}
+<article class="gh-article {{post_class}}">
+    <header class="gh-header">
+        <h1 class="gh-title">{{title}}</h1>
 
-            <div class="gh-main-content">
-                {{#post}}
-                <article class="gh-article {{post_class}}">
-                    <header class="gh-header">
-                        <h1 class="gh-title">{{title}}</h1>
+        {{#if custom_excerpt}}
+        <p class="gh-excerpt">{{custom_excerpt}}</p>
+        {{/if}}
 
-                        {{#if custom_excerpt}}
-                        <p class="gh-excerpt">{{custom_excerpt}}</p>
-                        {{/if}}
-
-                        <div class="gh-post-meta">
-                            <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY-MM-DD"}}</time>
-                            {{#if tags}}
-                                <span class="gh-post-meta-tags">
-                                {{#foreach tags}}
-                                    <a href="{{url}}" class="gh-post-meta-tag" data-tag-name="{{name}}">{{name}}</a>
-                                {{/foreach}}
-                                </span>
-                            {{/if}}
-                        </div>
-                    </header>
-
-                    <div class="gh-content gh-canvas">
-                        {{content}}
-                    </div>
-
-                    <footer class="gh-footer gh-canvas">
-                        {{#if comments}}
-                        <section class="gh-post-comments">
-                            {{comments}}
-                        </section>
-                        {{/if}}
-                    </footer>
-                </article>
-                {{/post}}
-            </div>
+        <div class="gh-post-meta">
+            <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY-MM-DD"}}</time>
+            {{#if tags}}
+                <span class="gh-post-meta-tags">
+                {{#foreach tags}}
+                    <a href="{{url}}" class="gh-post-meta-tag" data-tag-name="{{name}}">{{name}}</a>
+                {{/foreach}}
+                </span>
+            {{/if}}
         </div>
+    </header>
+
+    <div class="gh-content gh-canvas">
+        {{content}}
     </div>
-</div>
+</article>
+{{/post}}
