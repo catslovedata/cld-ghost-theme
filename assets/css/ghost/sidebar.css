@@ -49,10 +49,20 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
 }
 
 .gh-sidebar-nav li {
-    margin: 0.5rem 0;
+    margin: 0;
+    display: inline;
+}
+
+.gh-sidebar-nav li:not(:last-child)::after {
+    content: " / ";
+    margin: 0 0.5rem;
+    opacity: 0.5;
 }
 
 .gh-sidebar-section {
@@ -82,17 +92,21 @@
     margin: 0;
     padding: 0;
     font-size: 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
 }
 
 .gh-sidebar-list-item {
-    margin: 0.5rem 0;
+    margin: 0;
+    display: inline;
 }
 
 .gh-sidebar-list-item a {
     color: inherit;
     text-decoration: none;
-    display: block;
-    padding: 0.25rem 0;
+    display: inline;
+    padding: 0;
 }
 
 .gh-sidebar-list-item a:hover {
@@ -105,7 +119,7 @@
     overflow: hidden;
 }
 
-/* Mobile: Stack layout with collapsible sidebar */
+/* Mobile: Stack layout with sidebar at bottom */
 @media (max-width: 900px) {
     .gh-layout {
         flex-direction: column;
@@ -114,9 +128,14 @@
     .gh-sidebar {
         flex: 0 0 auto;
         position: static;
-        border-bottom: 1px solid rgba(0,0,0,0.1);
-        padding-bottom: 2rem;
-        margin-bottom: 2rem;
+        order: 2;
+        border-top: 1px solid rgba(0,0,0,0.1);
+        padding-top: 2rem;
+        margin-top: 2rem;
+    }
+
+    .gh-main-content {
+        order: 1;
     }
 
     .gh-sidebar-header {
