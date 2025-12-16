@@ -13,6 +13,11 @@ html {
     scrollbar-gutter: stable;
 }
 
+/* Maintain scrollbar gutter even when overflow is hidden (e.g., when modals are open) */
+html[style*="overflow: hidden"] {
+    scrollbar-gutter: stable;
+}
+
 body {
     min-height: 100vh;
     margin: 0;
