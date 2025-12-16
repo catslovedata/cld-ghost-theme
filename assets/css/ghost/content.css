@@ -5,8 +5,9 @@
 
 .gh-canvas,
 .kg-width-full.kg-content-wide {
-    --gap: 4vw;
+    --gap: 0vw;
     /* Main content uses 90% of available width (responsive to actual container size) */
+    /* HERE */
     --main: min(90%, 100% - var(--gap) * 2);
     /* Wide area gets the remaining space on each side */
     --wide: minmax(0, calc((100% - min(90%, 100% - var(--gap) * 2)) / 2));

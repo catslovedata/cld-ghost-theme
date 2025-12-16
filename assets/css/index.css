@@ -183,9 +183,11 @@ html,
     opacity: 0.8;
 }
 
+/*
 .gh-post-meta time {
     font-weight: 600;
 }
+    */
 
 .gh-post-meta-separator {
     margin: 0 0.5rem;
